@@ -24,15 +24,7 @@ var categoria = 'Computadora',
     calificacion = 5;
 
 //Las variables no pueden ser declaradas al inicio con numeros:
-var 99dias; //Esta mal
-var dias99; //Bien
-
-var 01_; //mal
-var _01; //Bien pero no recomendable
-var _usuario; //bien pero no recomendable 
-var __ususario; //bien pero no recomendable
-
-//Las variables se declaran con camelCase
-var nombreProducto: 
+//var 99dias;
+//var __usuarios; --> Esta es bien pero no es recomendable.
 
 //Las clases se nombran con PascalCase
