@@ -9,7 +9,7 @@ console.log(numeros);
 console.log(meses);
 
 //Se pueden crear arreglos con un solo valor 
-const carrito = [ 10 ];
+const canasta = [ 10 ];
 
 //Un arreglo que contiene datos de todo tipo
 const deTodo = ['Hola', 10, true, 'si', null, { nombre: 'Melanio', trabajo: 'Programador'}];
