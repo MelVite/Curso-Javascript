@@ -7,7 +7,7 @@ function sumar () {
 
 
 // Expresión de Función ( Function Expression)
-sumar02(); //marca error debido al hoisting de JS
+//sumar02(); //marca error debido al hoisting de JS
 const sumar02 = function() {
     console.log( 3 + 3);
 }
