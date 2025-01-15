@@ -1,0 +1,1 @@
+//REalizar los métodos de propiedad con el reproductor de música 
