@@ -1,4 +1,4 @@
-//Iterador for... of
+//Iterador for... of Itera sobre arreglos
 const pendientes07 = ['Tarea', 'Comer', 'Proyecto', 'Estudiar JavaScript'];
 
 const carrito07 = [
