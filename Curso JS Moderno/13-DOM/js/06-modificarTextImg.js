@@ -21,5 +21,18 @@ console.log(encabezado.innerHTML); //Se trae el HTML
 
 
 //Chainning o Encadenamiento
-const encabezado2 = document.querySelector('.contenido-hero h1').textContent;
+const encabezado2 = document.querySelector('.contenido-hero h1').textContent
 console.log(encabezado2);
+
+document.querySelector('.contenido-hero h1').textContent = 'nuevo heading' //ESto modifica el encabezado 
+
+//Otra forma de modificar el encabezado
+const nuevoHeading = 'Nuevo Heading 3';
+document.querySelector('.contenido-hero h1').textContent = nuevoHeading;
+
+//MODIFICAR IMAGEN 
+const imagen = document.querySelector('.card img');
+imagen.src = 'img/hacer2.jpg';
+
+//Modificar el titulo de la segunda card 
+document.querySelector('.card:nth-child(2) .info .titulo').textContent = 'Super Show 2017';
