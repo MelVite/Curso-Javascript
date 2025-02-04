@@ -27,4 +27,23 @@
 const navegacion = document.querySelector('.navegacion');
 
 console.log(navegacion);
-console.log(navegacion.childNodes);
+console.log(navegacion.childNodes); //Los espacios en blanco son considerados elementos
+console.log(navegacion.children); //Muestra unicamente los elementos HTML
+
+
+//Dado a que tiene la estructura de un arreglo se pueden ingresar a sus elementos de ese mismo modo
+console.log(navegacion.children[0]);
+console.log(navegacion.children[1].nodeName); //Etiqueta del elemento
+console.log(navegacion.children[1].nodeType); //Se trata de un entero positivo con los valores como ELEMENT_NODE, ATRIBUTE_NODE, etc.
+
+
+//Seleccionar card para navegar por sus nodos 
+const card8 = document.querySelector('.card');
+
+card8.children[1].children[1].textContent = 'Nuevo heading desde traversing the DOM'
+
+console.log(card8.children[1].children[1].textContent);
+
+//Cambiar imagen con traversing 
+card8.children[0].src = 'img/hacer3.jpg';
+console.log(card8.children[0]);
