@@ -26,6 +26,7 @@
 
 const navegacion = document.querySelector('.navegacion');
 
+/**HIJOS con children */
 console.log(navegacion);
 console.log(navegacion.childNodes); //Los espacios en blanco son considerados elementos
 console.log(navegacion.children); //Muestra unicamente los elementos HTML
@@ -47,3 +48,26 @@ console.log(card8.children[1].children[1].textContent);
 //Cambiar imagen con traversing 
 card8.children[0].src = 'img/hacer3.jpg';
 console.log(card8.children[0]);
+
+/**De Hijos a PADRE con PARENT */
+//Traversing the hijo al padre
+console.log(card8.parentNode); //Toma en cuenta los espacios en blanco 
+console.log(card8.parentElement); //REsultado igual pero más segura
+console.log(card8.parentElement.parentElement.parentElement);
+
+
+/**HERMANOS (elementos iguales) */
+//Recorrer a la segunda card 
+console.log(card8);
+console.log(card8.nextElementSibling);
+console.log(card8.nextElementSibling.nextElementSibling);
+
+/**Ir al ELEMENTO PREVIO */
+const ultimaCard = document.querySelector('.card:nth-child(4)');
+console.log(ultimaCard);
+console.log(ultimaCard.previousElementSibling); //Se regresa un elemento antes
+
+
+//Primer y ultimo elemento:
+console.log(navegacion.firstElementChild);
+console.log(navegacion.lastElementChild);
