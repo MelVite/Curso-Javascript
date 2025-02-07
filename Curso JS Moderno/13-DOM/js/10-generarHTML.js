@@ -73,4 +73,25 @@ info.appendChild(parrafo3);
 const img = document.createElement('img');
 img.src = 'img/hacer2.jpg';
 
-console.log(info);
+img.classList.add('img-fluid');
+
+img.alt = 'Texto alternativo';
+
+//Hace falta el div padre card 
+//Crear card
+const card10 = document.createElement('div');
+card10.classList.add('card');
+
+//Agregar imagen
+card10.appendChild(img);
+//Agregar div info
+card10.appendChild(info);
+
+//Insertar en el HTML
+const contenedor = document.querySelector('.hacer .contenedor-cards');
+//contenedor.appendChild(card10);
+//Con insertBefore:
+contenedor.insertBefore(card10, contenedor.children[0]);
+
+
+console.log(card10);
