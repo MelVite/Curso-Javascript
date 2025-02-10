@@ -18,10 +18,24 @@
  * 2. Métodos de JavaScript (on-event): Se puede asignar el evento usando JavaScript en el script
  * 3. addEventListener(): La forma más flexible y recomendada de manejar eventos en JavaScript. Permite añadir múltiples manejadores para un mismo evento sin sobrescribir los anteriores
  */
+console.log(1);
 
-document.addEventListener('DOMContentLoaded'); 
+document.addEventListener('DOMContentLoaded', () => {
+    console.log(2);
+}); 
 
 /**DOMContentLoaded
  * es un evento en JS que se dispara cuando el DOM de una página web ha sido completamente cargado y parseado, sin esperar a que se carguen los recursos como imágenes, hojas de estilo o scripts externos. 
  * En otras palabras, el evento indica que la estructura básica de la página (los elementos HTML) ya está disponible para ser manipulada a través de JavaScript.
+ */
+
+console.log(3);
+
+/**
+ * Imprime:
+ * 1
+ * 3
+ * 2
+ * 
+ * El 2 se imprime hasta que ya cargo todo el HTML de la página
  */
