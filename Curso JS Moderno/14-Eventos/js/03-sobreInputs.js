@@ -51,6 +51,21 @@ busqueda.addEventListener('cut', () => {
 })
 
 //Registrar un evento input --> Ocurre cuando el valor del input cambia
-busqueda.addEventListener('input', () => {
-    console.log('Ha cambiado el valor dentro del input')
+busqueda.addEventListener('input', (evt) => {
+    console.log(evt.type);
+    console.log(evt.target);
+    console.log(evt.target.value); //Lo que el usuarios esta escribiendo (se utiliza también para validar)
+
+    //En validación
+    if(evt.target.value === '') {
+        console.log('fallo la validación');
+    }
+
 })
+
+/** target
+ * es una propiedad comúnmente utilizada en eventos. 
+ * Se refiere al elemento en el que ocurrió un evento, es decir, el "objetivo" del evento. 
+ * Esto es útil cuando tienes un manejador de eventos que puede estar asociado a múltiples elementos, y quieres saber cuál de esos elementos fue el que disparó el evento.
+ * Por ejemplo, si tienes un evento de clic y este se activa en un botón dentro de un contenedor, target te dirá cuál fue el botón que fue clickeado.
+ */
