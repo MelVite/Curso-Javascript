@@ -13,6 +13,17 @@ parrafo2.classList.add('titulo');
 const parrafo3 = document.createElement('p');
 parrafo3.textContent = '$800 por persona';
 parrafo3.classList.add('precio');
+//Con función
+parrafo3.onclick = nuevaFuncion; //Se define la nueva función más abajo
+//Con una función con parámetros
+parrafo3.onclick = function () {
+    nuevaFuncion(12);
+}
+//Con arrow function
+parrafo3.onclick = () => {
+    nuevaFuncion(8);
+}
+
 
 // crear el div...
 const info = document.createElement('div');
@@ -38,3 +49,17 @@ contenedorCard.appendChild(info);
 // Insertarlo en el HTML...
 const contenedor = document.querySelector('.hacer .contenedor-cards');
 contenedor.appendChild(contenedorCard); // al inicio info
+
+
+
+//Función sin parámetros:
+/*function nuevaFuncion() {
+    console.log('Desde nueva función');
+}*/
+
+//función con parámetros
+function nuevaFuncion(id) {
+    console.log('Desde nueva función', id);
+}
+
+//Lo anterior es especial para que cuando se crea contenido HTML desde JS también se le puedan agregra funciones 

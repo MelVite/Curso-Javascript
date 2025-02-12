@@ -16,7 +16,11 @@ window.addEventListener('scroll', () => {
 
     console.log(ubicacion);
 
-    if()
+    if(ubicacion.top < 784 ) {
+        console.log('El elemento ya esta visible');
+    } else {
+        console.log('Aún no, da más scroll');
+    }
 })
 
 /** getBoundingClientRect()
