@@ -19,7 +19,7 @@ function agregarCurso(evt) {
     evt.preventDefault();
     //console.log(evt.target.classList);//visualizar las clases
     if(evt.target.classList.contains('agregar-carrito')) {
-        const cursoSeleccionado = evt.target.parentElement.parentElement;
+        const cursoSeleccionado = evt.target.parentElement.parentElement; //Se accede al div del contenido del curso
         leerDatosCurso(cursoSeleccionado);
     }
 } 
@@ -68,5 +68,11 @@ function carritoHTML() {
 
 //Elimina los cursos del tbody
 function limpiarHTML() {
-    contenedorCarrito.innerHTML = '';
+    //forma lenta
+    //contenedorCarrito.innerHTML = '';
+
+    //Forma rápida
+    while(contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+    }
 }
