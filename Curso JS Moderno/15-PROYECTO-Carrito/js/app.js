@@ -10,6 +10,16 @@ cargarEvenListeners();
 function cargarEvenListeners() {
     //Cuando agregas un curso presionando "Agregar al carrito"
     listaCursos.addEventListener('click', agregarCurso)
+
+    // Elimina cursos del carrito
+    carrito.addEventListener('click', eliminarCurso);
+
+    // Vaciar el carrito
+    vaciarCarritoBtn.addEventListener('click', () => {
+        articulosCarrito = []; // reseteamos el arreglo
+
+        limpiarHTML(); // Eliminamos todo el HTML
+    })
 }
 
 
@@ -24,6 +34,21 @@ function agregarCurso(evt) {
     }
 } 
 
+//Elimina un curso del carrito
+function eliminarCurso( evt ) {
+    
+    if( evt.target.classList.contains('borrar-curso')){
+        //console.log( evt.target.getAttribute('data-id')); //Para verificar que estamos obtenemos el id del curso que queremos eliminar
+        const cursoId = evt.target.getAttribute('data-id');
+
+        // Eliminar del arreglo de articulosCarrito por el data-id
+        articulosCarrito = articulosCarrito.filter( curso => curso.id !== cursoId); //trae todos los articulos excepto el de cursoId
+
+        carritoHTML(); //Iterar sobre el carrito y mostrar su HTML
+        
+    }
+}
+
 //Lee el contenido del HTML al que le dimos click y extrae la información del curso
 function leerDatosCurso(curso) {
     //console.log(curso);
@@ -37,8 +62,23 @@ function leerDatosCurso(curso) {
         cantidad: 1,
     }
 
-    //Agregar elementos al arreglo de carrito
-    articulosCarrito = [...articulosCarrito, infoCurso]; //copia del carrito
+    //Revisa si un elemento ya existe en el carrito
+    const existe = articulosCarrito.some( curso => curso.id === infoCurso.id );
+    if(existe) {
+        //Actualizamos la cantidad
+        const cursos = articulosCarrito.map( curso => { //map ira iterando sobre todos los elementos del carrito
+            if( curso.id === infoCurso.id ) {
+                curso.cantidad++;
+                return curso; //retorna el objeto actualizado
+            } else {
+                return curso; //retorna los objetos que no son duplicados
+            }
+        });
+        articulosCarrito = [...cursos];
+    } else {
+        // Agrega elementosal arreglo de carrito
+        articulosCarrito = [...articulosCarrito, infoCurso]; //copia del carrito
+    }
 
     console.log(articulosCarrito);
 
@@ -54,11 +94,23 @@ function carritoHTML() {
 
     //Recorre el carrito y genera el HTML
     articulosCarrito.forEach( curso => {
+        const { imagen, titulo, precio, cantidad, id} = curso;
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>
-                ${curso.titulo}
+                <img src="${imagen}" width="100">
             </td>
+        
+            <td>${titulo}</td>
+
+            <td>${precio}</td>
+
+            <td>${cantidad}</td>
+
+            <td>
+                <a href="#" class="borrar-curso" data-id="${id}" > X </a>
+            </td>
+
         `;
 
         //Agrega el HTML del carrito en el tbody
